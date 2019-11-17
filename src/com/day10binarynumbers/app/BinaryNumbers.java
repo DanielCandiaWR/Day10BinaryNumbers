@@ -12,21 +12,12 @@ public class BinaryNumbers {
 	public static void main(String[] args) {
 		System.out.print("Input a number: ");
 		int number = scanner.nextInt();
-		String binaryNumber = "";
-		int counter = 0;
 		int maxOfOnes = 0;
-		binaryNumber = Integer.toBinaryString(number);
-		System.out.println("Your binary number is: "+binaryNumber);
-		for(int i=0;i<binaryNumber.length();i++) {
-			if(binaryNumber.charAt(i)=='1') {
-				counter++;
-			}else if(binaryNumber.charAt(i)=='0'){
-				counter = 0;
-			}
-			if(maxOfOnes<counter) {
-				maxOfOnes = counter;
-			}
-		}
+        String binaryNumber[] = Integer.toBinaryString(number).split("0");
+        for(int i=0;i<binaryNumber.length;i++){
+            maxOfOnes = (binaryNumber[i].length()>maxOfOnes)?binaryNumber[i].length():maxOfOnes;
+            
+        }
 		System.out.format("Your number has %d consecutive 1's",maxOfOnes);
 		scanner.close();
 	}
